@@ -1,0 +1,14 @@
+.required span:first-child {
+    font-weight: bold;
+}
+.required span:first-child:after {
+    color: #e32;
+    content: ' *';
+    display:inline;
+}
+
+.error {
+  color:#db2269;
+  font-size: 0.625em;
+  display: relative;
+}
