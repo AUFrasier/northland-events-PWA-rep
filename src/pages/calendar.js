@@ -1,9 +1,10 @@
 import React from 'react'
+import Loadable from 'react-loadable'
 import { graphql } from "gatsby"
-import EventsCalendar from '../components/EventsCalendar'
 import '../styles/styles.scss'
 import Layout from '../components/layout'
 import styled from 'styled-components'
+
 
 const PageTitle = styled.h1`
     text-align: center;
@@ -79,11 +80,16 @@ const CalendarPage = ({ data }) => {
             })
         });
     }
-
+const LoadableCallendar=Loadable({
+        loader:()=>import('../components/EventsCalendar'),
+        loading() {
+            return <div>Loading...</div>
+          }
+    })
 return (
         <Layout>
             <PageTitle>Featured Events</PageTitle>
-            <EventsCalendar events={EventDataArr} />
+            <LoadableCallendar events={EventDataArr} />
         </Layout>
   );
 }
