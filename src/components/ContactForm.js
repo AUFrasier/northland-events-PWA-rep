@@ -197,9 +197,9 @@ class ContactUsForm extends React.Component {
 			
 			console.log(this.state.requestObjectData);
 			console.log(this.state.requestStatusData);
-			console.log(process.env.GATSBY_CONTACT_FORM_API_ENPOINT);
-			console.log(process.env.GATSBY_CONTACT_CONSUMER_KEY);
-			console.log(process.env.GATSBY_CONTACT_CONSUMER_SECRET);
+			//console.log(process.env.GATSBY_CONTACT_FORM_API_ENPOINT);
+			//console.log(process.env.GATSBY_CONTACT_CONSUMER_KEY);
+			//console.log(process.env.GATSBY_CONTACT_CONSUMER_SECRET);
 			
 		  }).catch(error => {
 			this.setState({

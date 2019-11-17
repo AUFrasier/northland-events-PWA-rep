@@ -93,8 +93,8 @@ exports.createPages = ({ graphql, actions }) => {
         // We want to create a detailed page for each
         // page node. We'll just use the WordPress Slug for the slug.
 				// The Page ID is prefixed with 'PAGE_'
-				console.log(result.data.allInternalEvents.edges[0].node)
-				console.log(result.data.allInternalEvents.edges[0].node.events)
+				//console.log(result.data.allInternalEvents.edges[0].node)
+				//console.log(result.data.allInternalEvents.edges[0].node.events)
         _.each(result.data.allInternalEvents.edges[0].node.events, event => {
           // Gatsby uses Redux to manage its internal state.
           // Plugins and sites can use functions like "createPage"
