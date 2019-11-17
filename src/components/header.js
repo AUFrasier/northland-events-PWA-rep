@@ -27,7 +27,6 @@ var FontAwesomeStyle = {
 };
 
 const Header = () => (
-
   <header>
     <HeaderWrapper>
       <Logo />
@@ -35,7 +34,6 @@ const Header = () => (
       <MainMenu />
     </HeaderWrapper>
   </header>
+);
 
-)
-
-export default Header
+export default Header;
