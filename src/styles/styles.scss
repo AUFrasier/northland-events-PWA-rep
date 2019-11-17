@@ -1,3 +1,8 @@
+// you must include each plugins' css
+// paths prefixed with ~ signify node_modules
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
+
 .required span:first-child {
     font-weight: bold;
 }
@@ -11,4 +16,47 @@
   color:#db2269;
   font-size: 0.625em;
   display: relative;
+}
+
+.calendar-page-wrapper {
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.calendar-top-container {
+  text-align: center;
+  margin-top: 45px
+
+}
+
+.calendar {
+  margin: 0 auto;
+  max-width: 90%;
+  margin-top: 30px;
+}
+
+.find-date-container {
+  text-align: center;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.find-date-input {
+  display: flex;
+  margin: 0 auto;
+}
+
+.find-date-button {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+input {
+  border: 2px #006226 solid;
+  padding: 3px;
+}
+
+textarea {
+  border: 2px #006226 solid;
 }

@@ -1,10 +1,15 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },
+  
   plugins: [
+
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -43,7 +48,19 @@ module.exports = {
 			},
 			verboseOutput: true,
 		}
-	},
+  },
+  {
+    resolve: `gatsby-plugin-manifest`,
+    options: {
+      name: 'Northland Events App',
+      short_name: `Recarge the Range`,
+      start_url: `/`,
+      background_color: `#FFF`,
+      theme_color: `#006226`,
+      display: `standalone`,
+      icon: `src/images/logo.svg`,
+    },
+  },
     {
       resolve: "gatsby-source-wordpress",
       options: {
@@ -141,6 +158,6 @@ module.exports = {
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
   ],
 }

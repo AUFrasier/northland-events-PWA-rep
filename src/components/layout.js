@@ -6,9 +6,8 @@
  */
 
 import React from "react"
-import MainMenu from './MainMenu'
 import Footer from './Footer'
-import { StaticQuery, graphql } from "gatsby"
+import Header from './Header'
 import "./layout.css"
 import {createGlobalStyle} from 'styled-components';
 import styled from 'styled-components';
@@ -31,11 +30,20 @@ const LayoutWrapper = styled.div`
 const Layout = ({ children }) => (
   <div>
     <Helmet>
+    <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin />
+    <script
+      src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"
+      crossorigin
+    />
+    <script
+      src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
+      crossorigin
+    />
       <link rel="shortcut icon" href="https://www.northlandevents.org/wp-content/uploads/2018/03/favicon.ico" />
       <title>Northland Events</title>
     </Helmet>
     <GlobalStyles />
-    <MainMenu />
+    <Header />
     <LayoutWrapper>
       {children}
     </LayoutWrapper>

@@ -1,6 +1,7 @@
 import React from 'react';
 import {graphql, StaticQuery, Link} from 'gatsby';
 import styled from 'styled-components';
+import Moment from 'react-moment';
 
 const EventListWrapper = styled.div`
   text-align: center;
@@ -9,86 +10,103 @@ const EventListWrapper = styled.div`
 `
 
 const EventBox = styled.div`
-  max-width: 100%;
-  border: 1px solid #efefef;
-  padding: 16px;
-  margin: 16px;
+	max-width: 100%;
+	border: 5px solid #006226;
+	padding: 15px;
+	margin: 40px;
+`
+
+const TimeHeading = styled.span`
+	text-align: center;
+	font-size: 20px;
+	display: block;
+	padding-bottom: 10px;
+	padding-top: 10px;
 `
 
 const EventImage = styled.img`
   max-width: 100%;
 `
 
-const PortfolioItems = () => {
+const EventList = () => {
     return(
         <StaticQuery query={graphql`
         {
-		  internalEvents {
-			events {
-			  all_day
-			  alternative_id
-			  author
-			  categories {
-				alternative_id
-				alternative_parent
-				count
-				description
-				filter
-				name
-				slug
-				taxonomy
-				term_group
-				term_taxonomy_id
-			  }
-			  image {
-				url
-			  }
-			  cost
-			  date
-			  date_utc
-			  description
-			  end_date
-			  excerpt
-			  featured
-			  global_id
-			  global_id_lineage
-			  hide_from_listings
-			  modified
-			  website
-			  venue {
-				address
-			  }
-			  utc_start_date
-			  utc_end_date
-			  url
-			  title
-			  timezone_abbr
-			  timezone
-			  sticky
-			  status
-			  start_date
-			  slug
-			  show_map_link
-			  show_map
-			  rest_url
-			  modified_utc
-			}
-		  }
-		}
+					allInternalEvents {
+						edges {
+							node {
+								id
+								events {
+									all_day
+									alternative_id
+									author
+									cost
+									slug
+									start_date
+									end_date
+									categories {
+										name
+										slug
+										taxonomy
+										term_group
+										term_taxonomy_id
+										filter
+										description
+										count
+										alternative_parent
+										alternative_id
+									}
+									description
+									excerpt
+									date
+									image {
+										url
+									}
+									show_map
+									show_map_link
+									title
+									url
+									website
+									venue {
+										address
+										alternative_id
+										author
+										city
+										country
+										slug
+										url
+										venue
+										website
+									}
+								}
+							}
+						}
+					}
+				}
+				
     `} render={props => (
         <EventListWrapper> 
-            {props.internalEvents.events.map(event => (
+            {props.allInternalEvents.edges[0].node.events.map(event => (
+							
                 <EventBox key={event.alternative_id}>
                     <h2 dangerouslySetInnerHTML={{__html: event.title}}/>
                     <EventImage src={event.image.url} alt="Event Thumbnail" />
-                    <div dangerouslySetInnerHTML={{__html: event.start_date}}/>
-                    <div dangerouslySetInnerHTML={{__html: event.cost}}/>
+										<br></br>
+										<TimeHeading>Start Date</TimeHeading>
+										<Moment className="start-date">{event.start_date}</Moment>
+										<br></br>
+										<TimeHeading>End Date</TimeHeading>
+										<Moment className="end-date">{event.end_date}</Moment>
+										<br></br>
+										
+                    <div className="cost" dangerouslySetInnerHTML={{__html: event.cost}}/>
+										<div className="excerpt" dangerouslySetInnerHTML={{__html: event.excerpt}}/>
                     <Link to={`/${event.slug}`}>Learn More</Link>
                 </EventBox>
             ))}
         </EventListWrapper>
     )} />
-    )
+		)
 }
 
-export default PortfolioItems;
+export default EventList;

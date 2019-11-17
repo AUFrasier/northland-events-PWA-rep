@@ -29,56 +29,56 @@ exports.createPages = ({ graphql, actions }) => {
     // ==== EVENTS ====
     graphql(
       `
-        {
-		  internalEvents {
-			events {
-			  all_day
-			  alternative_id
-			  author
-			  categories {
-				alternative_id
-				alternative_parent
-				count
-				description
-				filter
-				name
-				slug
-				taxonomy
-				term_group
-				term_taxonomy_id
-			  }
-			  cost
-			  date
-			  date_utc
-			  description
-			  end_date
-			  excerpt
-			  featured
-			  global_id
-			  global_id_lineage
-			  hide_from_listings
-			  modified
-			  website
-			  venue {
-				address
-			  }
-			  utc_start_date
-			  utc_end_date
-			  url
-			  title
-			  timezone_abbr
-			  timezone
-			  sticky
-			  status
-			  start_date
-			  slug
-			  show_map_link
-			  show_map
-			  rest_url
-			  modified_utc
+			{
+				allInternalEvents {
+					edges {
+						node {
+							id
+							events {
+								all_day
+								alternative_id
+								author
+								cost
+								slug
+								start_date
+								categories {
+									name
+									slug
+									taxonomy
+									term_group
+									term_taxonomy_id
+									filter
+									description
+									count
+									alternative_parent
+									alternative_id
+								}
+								description
+								date
+								image {
+									url
+								}
+								show_map
+								show_map_link
+								title
+								url
+								website
+								venue {
+									address
+									alternative_id
+									author
+									city
+									country
+									slug
+									url
+									venue
+									website
+								}
+							}
+						}
+					}
+				}
 			}
-		  }
-		}
 
       `
     )
@@ -92,14 +92,16 @@ exports.createPages = ({ graphql, actions }) => {
         const eventTemplate = path.resolve("./src/templates/event.js")
         // We want to create a detailed page for each
         // page node. We'll just use the WordPress Slug for the slug.
-        // The Page ID is prefixed with 'PAGE_'
-        _.each(result.data.internalEvents.events, event => {
+				// The Page ID is prefixed with 'PAGE_'
+				console.log(result.data.allInternalEvents.edges[0].node)
+				console.log(result.data.allInternalEvents.edges[0].node.events)
+        _.each(result.data.allInternalEvents.edges[0].node.events, event => {
           // Gatsby uses Redux to manage its internal state.
           // Plugins and sites can use functions like "createPage"
           // to interact with Gatsby.
-          //console.log('-----------------');
-          console.log(event.slug);
-          //console.log('-----------------');
+          console.log('-----------------');
+          console.log(event);
+          console.log('-----------------');
           createPage({
             // Each page is required to have a `path` as well
             // as a template component. The `context` is
