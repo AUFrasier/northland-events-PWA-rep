@@ -6,8 +6,8 @@
  */
 
 import React from "react"
-import Footer from '../components/Footer'
-import Header from '../components/Header'
+import Footer from './Footer'
+import Header from './header'
 import "./layout.css"
 import {createGlobalStyle} from 'styled-components';
 import styled from 'styled-components';

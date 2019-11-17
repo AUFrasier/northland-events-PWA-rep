@@ -1,9 +1,9 @@
-import React from "react"
+import React from "react";
 import styled from 'styled-components';
-import Logo from '../components/Logo'
-import MainMenu from '../components/MainMenu'
+import Logo from './Logo';
+import MainMenu from './MainMenu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook } from "@fortawesome/free-brands-svg-icons"
+import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 const HeaderWrapper = styled.div`
     max-width: 100%;
