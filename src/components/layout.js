@@ -8,10 +8,10 @@
 import React from "react"
 import Footer from './Footer'
 import Header from './header'
-import "./layout.css"
 import {createGlobalStyle} from 'styled-components';
 import styled from 'styled-components';
 import {Helmet} from "react-helmet";
+import "./layout.css"
 
 const GlobalStyles = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap');
