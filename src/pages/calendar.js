@@ -15,7 +15,7 @@ const PageTitle = styled.h1`
 const EventDataArr = [];
 export const query = graphql`
 {
-    allInternalEvents {
+    allInternalEvents (filter: {id: {ne: "dummy"}}) {
         edges {
             node {
                 id
@@ -69,16 +69,23 @@ export const query = graphql`
 const CalendarPage = ({ data }) => {
     const eventData = data.allInternalEvents.edges[0].node.events;
     //console.log(EventDataArr.length)
-    if (EventDataArr.length == 0) {
+    if (EventDataArr.length == 0 && eventData != null) {
         eventData.forEach(function (event) {
-            console.log(event)
+            //console.log(event)
             EventDataArr.push({
                 id: event.alternative_id,
                 title: event.title,
                 start: event.start_date,
-                url: '/' + event.slug
+                url: '/event/' + event.slug
             })
         });
+    } else {
+        return (
+            <Layout>
+                <PageTitle>Featured Events</PageTitle>
+                <span>No events were found or there was an error the server request.</span>
+            </Layout>
+      );
     }
 const LoadableCallendar=Loadable({
         loader:()=>import('../components/EventsCalendar'),

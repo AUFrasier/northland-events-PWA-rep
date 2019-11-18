@@ -3,9 +3,12 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: "Northland Events | Local Events on the Iron Range | App",
+    description: "The Minnesota Northland is a bustling place of community, adventure, education and activities. Sometimes you just need to know where to look. Look no further than our Northland Events Calendar! Never miss out on an Iron Range Event.  This Progressive Web Application will give you everything you need - even with no internet connection!",
+    url: "https://app.northlandevents.org",
+    author: "Art Unlimited USA",
+    image: "https://www.northlandevents.org/wp-content/uploads/2018/03/logo.svg",
+    siteName: "Northland Events Progressive Web Application"
   },
   
   plugins: [
@@ -21,18 +24,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
-    },
 	{
 		resolve: 'gatsby-source-apiserver',
 		options: {
@@ -161,7 +152,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-offline`,
       options: {
-        appendScript: require.resolve('src/custom-sw-code.js'),
+        precachePages: [`/event/*`],
       },
     },
   ],

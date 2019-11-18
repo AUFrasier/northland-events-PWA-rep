@@ -32,7 +32,7 @@ const EventList = () => {
     return(
         <StaticQuery query={graphql`
         {
-					allInternalEvents {
+					allInternalEvents (filter: {id: {ne: "dummy"}}) {
 						edges {
 							node {
 								id
@@ -101,7 +101,7 @@ const EventList = () => {
 										
                     <div className="cost" dangerouslySetInnerHTML={{__html: event.cost}}/>
 										<div className="excerpt" dangerouslySetInnerHTML={{__html: event.excerpt}}/>
-                    <Link to={`/${event.slug}`}>Learn More</Link>
+                    <Link to={`/event/${event.slug}`}>Learn More</Link>
                 </EventBox>
             ))}
         </EventListWrapper>

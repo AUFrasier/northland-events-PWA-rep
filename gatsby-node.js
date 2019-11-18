@@ -30,7 +30,7 @@ exports.createPages = ({ graphql, actions }) => {
     graphql(
       `
 			{
-				allInternalEvents {
+				allInternalEvents (filter: {id: {ne: "dummy"}}) {
 					edges {
 						node {
 							id
@@ -107,7 +107,7 @@ exports.createPages = ({ graphql, actions }) => {
             // as a template component. The `context` is
             // optional but is often necessary so the template
             // can query data specific to each page.
-            path: `/${event.slug}/`,
+            path: `event/${event.slug}/`,
             component: slash(eventTemplate),
             context: event,
           })
