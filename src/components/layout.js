@@ -8,6 +8,7 @@
 import React from "react"
 import Footer from './Footer'
 import Header from './header'
+import SEO from './seo'
 import {createGlobalStyle} from 'styled-components';
 import styled from 'styled-components';
 import {Helmet} from "react-helmet";
@@ -40,8 +41,8 @@ const Layout = ({ children }) => (
       crossorigin
     />
       <link rel="shortcut icon" href="https://www.northlandevents.org/wp-content/uploads/2018/03/favicon.ico" />
-      <title>Northland Events</title>
     </Helmet>
+    <SEO />
     <GlobalStyles />
     <Header />
     <LayoutWrapper>

@@ -44,7 +44,7 @@ function SEO({ description, lang, meta, title, siteName, image, author, url }) {
         },
         {
           property: `og:title`,
-          content: title,
+          content: site.siteMetadata.title,
         },
         {
           property: `og:description`,
@@ -52,7 +52,7 @@ function SEO({ description, lang, meta, title, siteName, image, author, url }) {
         },
         {
           property: `og:author`,
-          content: author,
+          content: site.siteMetadata.author,
         },
         {
           property: `og:type`,
@@ -60,15 +60,15 @@ function SEO({ description, lang, meta, title, siteName, image, author, url }) {
         },
         {
           property: `og:url`,
-          content: url,
+          content: site.siteMetadata.url,
         },
         {
           property: `og:image`,
-          content: image,
+          content: site.siteMetadata.image,
         },
         {
           name: `og:site_name`,
-          content: siteName,
+          content: site.siteMetadata.siteName,
         },
         {
           name: `twitter:card`,
