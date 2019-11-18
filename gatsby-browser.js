@@ -15,22 +15,14 @@ export const onServiceWorkerUpdateReady = () => {
       window.location.reload()
     }
   }
-  function displayNotification() {
-    if (Notification.permission == 'granted') {
-      navigator.serviceWorker.getRegistration().then(function(reg) {
-        reg.showNotification('Hello world!');
-      });
-    }
-  }
-  displayNotification();
-  export const onServiceWorkerUpdateFound = () => {
+export const onServiceWorkerUpdateFound = () => {
     const showNotification = () => {
       Notification.requestPermission(result => {
           if (result === 'granted') {
               navigator.serviceWorker.ready.then(registration => {
                   registration.showNotification('Update', {
                       body: 'New content is available!',
-                      icon: 'link-to-your-icon',
+                      icon: 'src/images/logo.svg',
                       vibrate: [200, 100, 200, 100, 200, 100, 400],
                       tag: 'request',
                       data: {
@@ -54,4 +46,4 @@ export const onServiceWorkerUpdateReady = () => {
     }
   
     showNotification()
-  }
+}

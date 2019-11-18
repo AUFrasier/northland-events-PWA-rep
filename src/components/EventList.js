@@ -6,7 +6,10 @@ import Moment from 'react-moment';
 const EventListWrapper = styled.div`
   text-align: center;
   margin: 0 auto;
-  width: 80%;
+	width: 80%;
+	@media (max-width: 800px) {
+    width: 100%;
+  }
 `
 
 const EventBox = styled.div`
